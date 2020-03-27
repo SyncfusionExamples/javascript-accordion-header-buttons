@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdn.syncfusion.com/js/assets/external/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        touch-action: none;
+    }
+
+    .e-image1 {
+        background-image: url(https://ej2.syncfusion.com/demos/src/schedule/images/airways-1.svg);
+        height: 30px;
+        padding-left: 35px;
+        background-repeat: no-repeat;
+    }
+
+    .e-image2 {
+        background-image: url(https://ej2.syncfusion.com/demos/src/schedule/images/airways-2.svg);
+        height: 30px;
+        padding-left: 35px;
+        background-repeat: no-repeat;
+    }
+
+    .e-image3 {
+        background-image: url(https://ej2.syncfusion.com/demos/src/schedule/images/airways-3.svg);
+        height: 30px;
+        padding-left: 35px;
+        background-repeat: no-repeat;
+    }
+
+    .e-acrdn-header-icon {
+        display: table;
+        font-size: 20px;
+        height: 36px;
+        min-height: 36px;
+        min-width: 24px;
+        position: absolute;
+        right: 28px;
+        top: 0;
+    }
+
+    .e-copy:before {
+        content: '\e70a';
+    }
+
+    .e-close:before {
+        content: '\e7fc';
+    }
+
+    .e-add:before {
+        content: '\e7f9';
+    }
+
+    .e-add,
+    .e-close,
+    .e-copy {
+        padding-left: 10px;
+        font-size: 15px;
+    }
+</style>
+
+<body>
+    <div id="Accordion_default"></div>
+    <script type="text/javascript">
+        var flag = false;
+        var acrdnObj = new ej.navigations.Accordion({
+            items: [
+                { header: 'ASP.NET', iconCss: 'e-add', expanded: true, content: 'Microsoft ASP.NET is a set of technologies in the Microsoft .NET Framework for building Web applications and XML Web services. ASP.NET pages execute on the server and generate markup such as HTML, WML, or XML that is sent to a desktop or mobile browser. ASP.NET pages use a compiled,event-driven programming model that improves performance and enables the separation of application logic and user interface.' },
+                { header: 'ASP.NET MVC', content: 'The Model-View-Controller (MVC) architectural pattern separates an application into three main components: the model, the view, and the controller. The ASP.NET MVC framework provides an alternative to the ASP.NET Web Forms pattern for creating Web applications. The ASP.NET MVC framework is a lightweight, highly testable presentation framework that (as with Web Forms-based applications) is integrated with existing ASP.NET features, such as master pages and membership-based authentication.' },
+                { header: 'JavaScript', content: 'JavaScript (JS) is an interpreted computer programming language.It was originally implemented as part of web browsers so that client-side scripts could interact with the user, control the browser, communicate asynchronously, and alter the document content that was displayed.More recently, however, it has become common in both game development and the creation of desktop applications.' }
+            ],
+            expanding: function (args) {
+                if (flag) {
+                    args.cancel = true;
+                    flag = false;
+                }
+            },
+            created: function (args) {
+                var icon1 = document.createElement('span');
+                icon1.setAttribute('class', 'e-copy e-icons');
+                document.querySelector('.e-add').parentElement.appendChild(icon1);
+                var icon2 = document.createElement('span');
+                icon2.setAttribute('class', 'e-close e-icons');
+                document.querySelector('.e-add').parentElement.appendChild(icon2);
+                document.querySelector('.e-icons').parentElement.addEventListener("click", function (args) {
+                    alert((args.target).classList[0].toString() + " icon Clicked");
+                    flag = true;
+                });
+            }
+        });
+        acrdnObj.appendTo('#Accordion_default');
+    </script>
+</body>
+
+</html>
