@@ -4,6 +4,9 @@ This project is a skeleton application used to create [Essential JS 2](https://w
 
 The application contains Essential JS 2 button component for preview and all common settings are preconfigured.
 
+## javascript-accordion-header-buttons
+This sample demonstrates the functionality of accordion header buttons, which are implemented using JavaScript. It provides an example to showcase how these buttons can be utilized to manage the display of content sections in a structured and interactive manner.
+
 ## Installing
 
 We can get all the Essential JS 2 components in a single npm package [`ej2`](https://www.npmjs.com/package/@syncfusion/ej2).
